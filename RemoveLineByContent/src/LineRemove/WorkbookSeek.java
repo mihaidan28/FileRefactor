@@ -48,7 +48,7 @@ public class WorkbookSeek {
 	private String searchAndRemove(String fileContent, String targetToken) {
 		String newFile = fileContent;
 		String replacement = "";
-		Pattern pattern = Pattern.compile(targetToken + "s*\\(s*.*s*\\)s*,(s*+)");
+		Pattern pattern = Pattern.compile(targetToken + "\\s*\\(\\s*.*\\s*\\)\\s*,\\s*+");
 		Matcher matcher = pattern.matcher(fileContent);
 		while (matcher.find() == true) {
 			String stringToReplace = matcher.group(0);
