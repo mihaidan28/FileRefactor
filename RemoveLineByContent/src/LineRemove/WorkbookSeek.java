@@ -48,14 +48,14 @@ public class WorkbookSeek {
 	private String searchAndRemove(String fileContent, String targetToken) {
 		String newFile = fileContent;
 		String replacement = "";
-		Pattern pattern = Pattern.compile(targetToken + "s*\\(s*.*s*\\)s*,s*");
+		Pattern pattern = Pattern.compile(targetToken + "s*\\(s*.*s*\\)s*,(s*+)");
 		Matcher matcher = pattern.matcher(fileContent);
 		while (matcher.find() == true) {
-			String regex = matcher.group(0);
-			System.out.println(regex);
-			newFile = newFile.replaceAll(regex, replacement);
+			String stringToReplace = matcher.group(0);
+			System.out.println(stringToReplace);
+			newFile = newFile.replace(stringToReplace, replacement);
 			if(newFile.equals(fileContent)) {
-				System.out.println("Error! " + replacement + " - " + regex);
+				System.out.println("Error! " + replacement + " - " + stringToReplace);
 			}
 		}
 		return newFile;
