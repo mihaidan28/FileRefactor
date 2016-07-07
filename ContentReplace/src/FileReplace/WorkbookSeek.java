@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -47,7 +48,7 @@ public class WorkbookSeek {
 		for (Row row : workbook.getSheetAt(0)) {
 			Cell cell0 = row.getCell(0);
 			Cell cell1 = row.getCell(1);
-			Cell cell3 = row.getCell(2);
+			Cell cell3 = row.getCell(3);
 			String filePath = cell0.getStringCellValue();
 			String targetToken = cell1.getStringCellValue();
 			String replacement = cell3.getStringCellValue();
